@@ -10,3 +10,14 @@ RUN apt-get update && \
         tar xvf helm-v2.14.0-linux-amd64.tar.gz -C /usr/bin --strip 1 && \
         wget https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl && \
         install -m 755 kubectl /usr/bin
+
+
+# Docker
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
+        curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
+        add-apt-repository \
+        "deb [arch=amd64] https://download.docker.com/linux/debian \
+        $(lsb_release -cs) \
+        stable" && \
+        apt-get update && \
+        apt-get install -y docker-ce docker-ce-cli containerd.io
