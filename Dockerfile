@@ -23,4 +23,4 @@ RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-
         apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Latex
-RUN apt-get install -y texlive texlive-base texlive-fonts-recommended texlive-fonts-extra
+RUN apt-get install -y texlive texlive-base texlive-fonts-recommended texlive-fonts-extra texinfo
