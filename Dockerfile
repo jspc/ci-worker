@@ -3,8 +3,8 @@ FROM debian:buster-slim
 RUN apt-get update && \
         apt-get upgrade -y && \
         apt-get install -y wget python3-pip golang unzip git && \
-        wget https://releases.hashicorp.com/terraform/0.12.5/terraform_0.12.5_linux_amd64.zip && \
-        unzip terraform_0.12.5_linux_amd64.zip -d /usr/bin && \
+        wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip && \
+        unzip terraform_0.12.18_linux_amd64.zip -d /usr/bin && \
         pip3 install awscli && \
         wget https://get.helm.sh/helm-v2.14.0-linux-amd64.tar.gz && \
         tar xvf helm-v2.14.0-linux-amd64.tar.gz -C /usr/bin --strip 1 && \
