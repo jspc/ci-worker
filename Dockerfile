@@ -33,3 +33,6 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.
 
 # rsync
 RUN apt-get install -y rsync
+
+# jq
+RUN apt-get install -y jq
