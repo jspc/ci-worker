@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'refs/tags')
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: build
+      run: |
+        set -axe
+
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+        docker build -t ghcr.io/jspc/ci-worker:${GITHUB_REF##*/}
+        docker push ghcr.io/jspc/ci-worker:${GITHUB_REF##*/}
